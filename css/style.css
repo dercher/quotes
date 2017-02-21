@@ -1,0 +1,47 @@
+body {
+ background: silver;
+}
+h1, h3, h5 {
+	width: 500px;
+  color:   #008B8B;
+  text-align: center;
+  margin: 120px auto;
+}
+h3 {
+	margin: 0 auto;
+	height: 70px;
+}
+h5 {
+	margin: 0 auto;
+	text-align: right;
+}
+.button {
+	background:    #b45f06;
+  background:    -webkit-linear-gradient(#f6b26b, #b45f06 50%, #f6b26b);
+  background:    linear-gradient(#f6b26b, #b45f06 50%, #f6b26b);
+	border:        1px solid #0b5394;
+	border-radius: 7px;
+	color:         #ff0;
+	padding:       10px 20px;
+	font:          normal 400 20px/1 "Arvo", serif;
+	text-align:    center;
+	text-shadow:   2px 2px 0 #0b5394;
+	display: table;
+	cursor: pointer;
+	margin: 0 auto;
+
+	-webkit-transition: all 1s ease; /* Firefox */
+	-moz-transition: all 1s ease; /* WebKit */
+	-o-transition: all 1s ease; /* Opera */
+	transition: all 1s ease; /* Standard */
+}
+.button:hover {
+  background:    #f6b26b;
+	background:    -webkit-linear-gradient(#b45f06, #f6b26b 50%, #b45f06);
+	background:    linear-gradient(#b45f06, #f6b26b 50%, #b45f06);
+
+	-webkit-transition: all 1s ease; /* Firefox */
+	-moz-transition: all 1s ease; /* WebKit */
+	-o-transition: all 1s ease; /* Opera */
+	transition: all 1s ease; /* Standard */
+}
