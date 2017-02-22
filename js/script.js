@@ -8,7 +8,7 @@ putNewQuote(true)
   }
   //----------
   function putNewQuote(bool) {
-    var random = setRandom(0, 36);
+    var random = setRandom(0, 35);
     var units = quotes[random][0].split(" ");
     if (bool) delAll();
     for (var i = 0; i < units.length; i++) {
@@ -17,48 +17,55 @@ putNewQuote(true)
       createElem('author', quotes[random][1], document.getElementsByTagName('h3')[0])
       replaceElems(bool);
       var photo = document.querySelector('.ramka');
-      fadeOut(photo, random);
+      //------
+      var randomFunction = setRandom(0, 2);  // --- setting random animation function
+      if( randomFunction == 0 ) {
+      	fadeOutScale(photo, random);
+      } else if( randomFunction == 1 ) {
+      	fadeOut(photo, random, ['right', 'left']);
+      } else if( randomFunction == 2 ) {
+      	fadeOut(photo, random, ['left', 'right']);
+      }    
 }
 // //--------------------
-// function fadeOut(el, random) {
-//   el.style.transform = 'scale(0.01)';
-
-//    setTimeout( function() {
-//    	el.style.background = "url('img/writers/" +quotes[random][1]+ ".jpg')";
-//     el.style.transform = 'scale(1)';
-//    }, 500);
-// }
+function fadeOutScale(el, random) {
+    el.style.transform = 'scale(0.01)';
+   setTimeout( function() {
+   	el.style.background = "url('img/writers/" +quotes[random][1]+ ".jpg')";
+    el.style.transform = 'scale(1)';
+   }, 500);
+}
 //--------------------
-function fadeOut(el, random) {
+function fadeOut(el, random, direction) {
 	var dist = document.body.clientWidth / 2 + 400;
-  el.style.transform = 'translateX(' +dist+ 'px)';
+  setDirection(el, dist, direction[0]);
+
   setTimeout(function() {
     el.parentNode.removeChild(el);
     var elem = document.createElement('div');
     elem.classList.add('ramka')
-    elem.style.transform = 'translateX(' +(-dist)+ 'px)';
+    setDirection(elem, dist, direction[1]);
     elem.innerHTML = '<div></div>';
     elem.style.background = "url('img/writers/" +quotes[random][1]+ ".jpg')";
     var parent = document.getElementsByTagName('body')[0];
     var reference = document.getElementsByTagName( 'h1' )[0];
     parent.insertBefore(elem, reference);
+
     setTimeout(function(){
      elem.style.transform = 'translateX(0px)';
     }, 20)
-    
+       
   }, 500)
-
-  // setTimeout( function() {
-  //  el.style.transition = '-webkit-transition: all 0s ease;-moz-transition: all 0s ease;-o-transition: all 0s ease;transition: all 0s ease;';
-  
-   
-  //  el.style.transition = '-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;';
-  //  el.style.transform = 'translateX(0px)';
-  // }, 500);
-  
 }
 //---------------
-    
+function setDirection(el, dist, direction) {  // --- for animation
+ if( direction == 'right') {
+  	 return el.style.transform = 'translateX(' +dist+ 'px)';
+   } else {
+   	var elem = el;
+  	 return elem.style.transform = 'translateX(' +(-dist)+ 'px)';
+   }
+}    
 //----------------------
 function createElem(Class, text, parent) {
   var el = document.createElement('div');
