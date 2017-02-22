@@ -73,7 +73,7 @@ var quotes = [
      ],
      [
       'Life is like a box of chocolates. You never know what you’re gonna get.',
-      '-Forrest Gump’s Mom'
+      '-Forrest Gumps Mom'
      ],
      [
       'There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.',
@@ -134,10 +134,6 @@ var quotes = [
      [
       'Go to heaven for the climate and hell for the company.',
       '-Mark Twain'
-     ],
-     [
-      'You can’t always get what you want.',
-      '-The Rolling Stones'
      ],
      [
       'If you love somebody, let them go, for if they return, they were always yours. If they don’t, they never were.',

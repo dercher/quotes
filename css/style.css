@@ -3,39 +3,38 @@ body {
  background: silver url('../img/fon.jpeg');
  width: 100%;
  height: 100%;
+ overflow-x:hidden;
+}
+.ramka {
+	background: url('../img/writers/-Albert Einstein.jpg');
+	background-size: cover;
+  width: 362px;
+  height: 225px;
+	margin: 15px auto 0;
+		-webkit-transition: all 0.5s ease; /* Firefox */
+	-moz-transition: all 0.5s ease; /* WebKit */
+	-o-transition: all 0.5s ease; /* Opera */
+	transition: all 0.5s ease; /* Standard */
+}
+.ramka div {
+	background: url('../img/ramka.png');
+	background-size: cover;
+	border-radius: 4px;
+  width: 372px;
+  height: 235px;
+  overflow: hidden;
 }
 h1, h3, h5 {
 	position: relative;
 	width: 500px;
   color: #D5E1DB;
   text-align: center;
-  margin: 120px auto 60px;
+  margin: 0 auto 50px;
 }
 h3 {
-	margin: 0 auto 40px;
+	margin: 0px auto 40px;
 	height: 70px;
 	width: 410px;
-}
-
-.button {
-	background:    #b45f06;
-  background:    -webkit-linear-gradient(#f6b26b, #b45f06 50%, #f6b26b);
-  background:    linear-gradient(#f6b26b, #b45f06 50%, #f6b26b);
-	border:        1px solid #0b5394;
-	border-radius: 7px;
-	color:         #ff0;
-	padding:       10px 20px;
-	font:          normal 400 20px/1 "Arvo", serif;
-	text-align:    center;
-	text-shadow:   2px 2px 0 #0b5394;
-	display: table;
-	cursor: pointer;
-	margin: 70px auto;
-
-	-webkit-transition: all 1s ease; /* Firefox */
-	-moz-transition: all 1s ease; /* WebKit */
-	-o-transition: all 1s ease; /* Opera */
-	transition: all 1s ease; /* Standard */
 }
 
 .unit, .author {
@@ -57,10 +56,11 @@ h3 {
 .container {
 	position: relative;
 	margin: 5% auto;
+	top: 20px;
 	width: 50px;
 	height: 80px;
 	perspective: 500px;
-	z-index: 10000;
+	/*z-index: 10000;*/
 }
 .cube {
 	width: inherit;
@@ -138,4 +138,23 @@ h3 {
 }
 .nav__left {
  left: 25px;
+}
+
+@media (max-width: 680px) {
+	h1 {
+		margin-top: 100px;
+		margin-bottom: 20px;
+	 }
+		h1, h3, h5 {
+		width: 100%;
+	}
+	h3 {
+		margin: 0 auto 40px;
+		height: 70px;
+		width: 100%;
+	}
+	.container {
+		top: 100px;
+	}
+	
 }

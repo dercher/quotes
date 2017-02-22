@@ -15,9 +15,51 @@ putNewQuote(true)
     	createElem('unit', units[i], document.getElementsByTagName('h3')[0])
     } 
       createElem('author', quotes[random][1], document.getElementsByTagName('h3')[0])
-      replaceElems(bool);   
+      replaceElems(bool);
+      var photo = document.querySelector('.ramka');
+      fadeOut(photo, random);
 }
+// //--------------------
+// function fadeOut(el, random) {
+//   el.style.transform = 'scale(0.01)';
+
+//    setTimeout( function() {
+//    	el.style.background = "url('img/writers/" +quotes[random][1]+ ".jpg')";
+//     el.style.transform = 'scale(1)';
+//    }, 500);
+// }
 //--------------------
+function fadeOut(el, random) {
+	var dist = document.body.clientWidth / 2 + 400;
+  el.style.transform = 'translateX(' +dist+ 'px)';
+  setTimeout(function() {
+    el.parentNode.removeChild(el);
+    var elem = document.createElement('div');
+    elem.classList.add('ramka')
+    elem.style.transform = 'translateX(' +(-dist)+ 'px)';
+    elem.innerHTML = '<div></div>';
+    elem.style.background = "url('img/writers/" +quotes[random][1]+ ".jpg')";
+    var parent = document.getElementsByTagName('body')[0];
+    var reference = document.getElementsByTagName( 'h1' )[0];
+    parent.insertBefore(elem, reference);
+    setTimeout(function(){
+     elem.style.transform = 'translateX(0px)';
+    }, 20)
+    
+  }, 500)
+
+  // setTimeout( function() {
+  //  el.style.transition = '-webkit-transition: all 0s ease;-moz-transition: all 0s ease;-o-transition: all 0s ease;transition: all 0s ease;';
+  
+   
+  //  el.style.transition = '-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;';
+  //  el.style.transform = 'translateX(0px)';
+  // }, 500);
+  
+}
+//---------------
+    
+//----------------------
 function createElem(Class, text, parent) {
   var el = document.createElement('div');
    el.classList.add(Class); 
@@ -54,7 +96,7 @@ function animateElems(units, author) {
       var h3Width = computedH3.width;
       h3Width = Number(h3Width.substr(0, h3Width.length - 2));
       	for (var i = 0; i < units.length; i++) {
-      		if ( all >= h3Width - 70 ) {
+      		if ( all >= h3Width - 140 ) {
       		  left = 0, all = 0, width = 0, top1 += 30;
       		}
     		units[i].style.top = top1 + 'px';
