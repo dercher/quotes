@@ -6,7 +6,7 @@ putNewQuote(true)
      return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   //----------
-  function putNewQuote(bool) {
+  function putNewQuote(bool, direction) {
     var random = setRandom(0, 34);
     var units = quotes[random][0].split(" ");
     if (bool) delAll();
@@ -17,12 +17,11 @@ putNewQuote(true)
       replaceElems(bool);
       var photo = document.querySelector('.ramka');
       //------
-      var randFunction = setRandom(0, 4);  // --- setting random animation function
-      if( randFunction == 0 ) { fadeOutScale(photo, random)} 
- else if( randFunction == 1 ) {fadeOut(photo, random, ['right', 'left'])} 
- else if( randFunction == 2 ) {fadeOut(photo, random, ['left', 'right'])}
- else if( randFunction == 3 ) {fadeOut(photo, random, ['top', 'bottom'])} 
- else if( randFunction == 4 ) {fadeOut(photo, random, ['bottom', 'top'])}     
+      if( direction == 0 ) { fadeOutScale(photo, random)} 
+ else if( direction == 'right' ) {fadeOut(photo, random, ['right', 'left'])} 
+ else if( direction == 'left' ) {fadeOut(photo, random, ['left', 'right'])}
+ else if( direction == 'top' ) {fadeOut(photo, random, ['top', 'bottom'])} 
+ else if( direction == 'bottom' ) {fadeOut(photo, random, ['bottom', 'top'])}     
 }
 // //--------------------
 function fadeOutScale(el, random) {
@@ -123,18 +122,22 @@ var rotateY = 20;
 var rotateZ = 0;
 document.querySelector('.nav__top').onclick = function() { 
     rotateBook( rotateX += 360);
+    putNewQuote(true, 'bottom');
 }
 
 document.querySelector('.nav__bottom').onclick = function() {
-   rotateBook(  rotateX -= 360 )
+   rotateBook(  rotateX -= 360 );
+   putNewQuote(true, 'top');
 }
 
 document.querySelector('.nav__right').onclick = function() {
-   rotateBook(  rotateY -= 360 )
+   rotateBook(  rotateY -= 360 );
+   putNewQuote(true, 'left');
 }
 
 document.querySelector('.nav__left').onclick = function() {
-   rotateBook(  rotateY += 360 )
+   rotateBook(  rotateY += 360 );
+   putNewQuote(true, 'right');
 }
 function rotateBook() {
 	el = document.querySelector('.cube');	
