@@ -68,4 +68,27 @@ function animateElems(units, author) {
       	author.style.top = (top1 + 30) + 'px';
       }, 1);
 }
+//===================== rotate book ==============
+var rotateX = 0;
+var rotateY = 20;
+var rotateZ = 0;
+document.querySelector('.nav__top').onclick = function() { 
+    rotateBook( rotateX += 360);
+}
+
+document.querySelector('.nav__bottom').onclick = function() {
+   rotateBook(  rotateX -= 360 )
+}
+
+document.querySelector('.nav__right').onclick = function() {
+   rotateBook(  rotateY -= 360 )
+}
+
+document.querySelector('.nav__left').onclick = function() {
+   rotateBook(  rotateY += 360 )
+}
+function rotateBook() {
+	el = document.querySelector('.cube');	
+	el.style.transform = 'rotateX(' +rotateX+ 'deg) rotateY(' +rotateY+ 'deg)';
+}
  
