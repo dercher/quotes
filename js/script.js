@@ -1,14 +1,13 @@
 // document.createElement();getElementById();getElementsByTagName();getElementsByName();getElementsByClassName();querySelector();querySelectorAll();el.classList.add();el.innerHTML = "";e.style.background = '';el.appendChild();setInterval();setTimeout();clearInterval();
 
 putNewQuote(true)
-
 //=============== ALL FUNCTIONS ============
   function setRandom(min, max) {
      return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   //----------
   function putNewQuote(bool) {
-    var random = setRandom(0, 35);
+    var random = setRandom(0, 34);
     var units = quotes[random][0].split(" ");
     if (bool) delAll();
     for (var i = 0; i < units.length; i++) {

@@ -20,10 +20,6 @@ var quotes = [
       '-Dr Suess'
      ],
      [
-      'If you want something done right, do it yourself.',
-      '-Charles-Guillaume Étienne'
-     ],
-     [
       'The unexamined life is not worth living.',
       '-Socrates'
      ],
