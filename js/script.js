@@ -18,14 +18,12 @@ putNewQuote(true)
       replaceElems(bool);
       var photo = document.querySelector('.ramka');
       //------
-      var randomFunction = setRandom(0, 2);  // --- setting random animation function
-      if( randomFunction == 0 ) {
-      	fadeOutScale(photo, random);
-      } else if( randomFunction == 1 ) {
-      	fadeOut(photo, random, ['right', 'left']);
-      } else if( randomFunction == 2 ) {
-      	fadeOut(photo, random, ['left', 'right']);
-      }    
+      var randFunction = setRandom(0, 4);  // --- setting random animation function
+      if( randFunction == 0 ) { fadeOutScale(photo, random)} 
+ else if( randFunction == 1 ) {fadeOut(photo, random, ['right', 'left'])} 
+ else if( randFunction == 2 ) {fadeOut(photo, random, ['left', 'right'])}
+ else if( randFunction == 3 ) {fadeOut(photo, random, ['top', 'bottom'])} 
+ else if( randFunction == 4 ) {fadeOut(photo, random, ['bottom', 'top'])}     
 }
 // //--------------------
 function fadeOutScale(el, random) {
@@ -37,8 +35,13 @@ function fadeOutScale(el, random) {
 }
 //--------------------
 function fadeOut(el, random, direction) {
-	var dist = document.body.clientWidth / 2 + 400;
-  setDirection(el, dist, direction[0]);
+	var dist;
+	if(direction[0] == 'right' || direction[0] == 'left') {
+		dist = document.body.clientWidth / 2 + 400;
+	} else if(direction[0] == 'top' || direction[0] == 'bottom') {
+		dist = document.body.clientHeight / 2 + 400;
+	}
+  setDirection(el, dist, direction[0]);   // --- for animation 
 
   setTimeout(function() {
     el.parentNode.removeChild(el);
@@ -54,17 +57,15 @@ function fadeOut(el, random, direction) {
     setTimeout(function(){
      elem.style.transform = 'translateX(0px)';
     }, 20)
-       
+
   }, 500)
 }
 //---------------
 function setDirection(el, dist, direction) {  // --- for animation
- if( direction == 'right') {
-  	 return el.style.transform = 'translateX(' +dist+ 'px)';
-   } else {
-   	var elem = el;
-  	 return elem.style.transform = 'translateX(' +(-dist)+ 'px)';
-   }
+     if(direction == 'right')  {return el.style.transform = 'translateX(' +dist+ 'px)'} 
+else if(direction == 'left')   {return el.style.transform = 'translateX(' +(-dist)+ 'px)'}
+else if(direction == 'top')    {return el.style.transform = 'translateY('   +dist+ 'px)'}
+else if(direction == 'bottom') {return el.style.transform = 'translateY(' +(-dist)+ 'px)'}   
 }    
 //----------------------
 function createElem(Class, text, parent) {
